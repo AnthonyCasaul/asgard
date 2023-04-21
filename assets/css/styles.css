@@ -1,0 +1,43 @@
+.list {
+    height: 80px; /* Set a fixed height for the list */
+    overflow: auto; /* Add a scrollbar when content overflows */
+    list-style-type: none;
+  }
+.list li::before {
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
+    content: "\f00d";
+    margin-right: 0.5em;
+  }
+.navbar .active{
+  /* background-color: black !important; */
+  border-radius: 50px 0 0 50px;
+  position: relative;
+  left: 10%;
+  transition: ease-in .5s;
+}
+::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+  transition: ease-in 2s;
+}
+::-webkit-scrollbar-thumb {
+  border-radius: 50px;
+  background: #afafaf;
+}
+::-webkit-scrollbar-thumb:hover{
+  /* background-color: #ffc800; */
+  background: #002649;
+}
+::-webkit-scrollbar-track {
+  /* background: rgba(0, 0, 0, 0.2); */
+  opacity: .1;
+}
+
+table{
+  border-collapse: separate;
+  border-spacing: 0 15px;
+}
+tr{
+  border-radius: 10px 0 0 10px !important;
+}

@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>Manage Teachers</title>
+    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.0/css/all.css">
+    <link rel="stylesheet" href="assets/css/Login-Form-Dark.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-table/1.10.0/bootstrap-table.min.css">
+    <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+
+<body onload="getTeachers();FillSubjects()" id="page-top">
+    <div id="wrapper">
+        <nav class="navbar navbar-dark d-lg-flex align-items-start align-items-lg-start sidebar sidebar-dark accordion bg-gradient-primary p-0" style="background: #002649;">
+            <div class="container-fluid d-flex flex-column p-0"><a class="navbar-brand d-flex justify-content-center align-items-center sidebar-brand m-0" href="#">
+                    <div class="sidebar-brand-icon"></div>
+                    <div class="sidebar-brand-text mx-3"><span style="color: var(--bs-white);">MENU</span></div>
+                </a><a class="navbar-brand d-flex justify-content-center align-items-center sidebar-brand m-0" href="home.html">
+                    <div class="sidebar-brand-icon"><i class="fas fa-home" style="color: var(--bs-white);"></i></div>
+                    <div class="sidebar-brand-text mx-3"><span style="color: var(--bs-white);">A.S.G.A.R.D</span></div>
+                </a><a class="active navbar-brand d-flex justify-content-center align-items-center sidebar-brand m-0" href="teachers.html" style="background: rgb(216,230,248);width: 100%;">
+                    <div class="sidebar-brand-icon"><i class="fas fa-chalkboard-teacher" style="color: #1e2833;"></i></div>
+                    <div class="sidebar-brand-text mx-3"><span style="color: #1e2833;">Teachers</span></div>
+                </a><a class="navbar-brand d-flex justify-content-center align-items-center sidebar-brand m-0" href="subjects.html">
+                    <div class="sidebar-brand-icon"><i class="fas fa-book" style="color: var(--bs-white);"></i></div>
+                    <div class="sidebar-brand-text mx-3"><span style="color: var(--bs-white);">subjects</span></div>
+                </a><a class="navbar-brand d-flex justify-content-center align-items-center sidebar-brand m-0" href="sections.html">
+                    <div class="sidebar-brand-icon"><i class="fas fa-users" style="color: var(--bs-white);"></i></div>
+                    <div class="sidebar-brand-text mx-3"><span style="color: var(--bs-white);">sections</span></div>
+                </a><a class="navbar-brand d-flex justify-content-center align-items-center sidebar-brand m-0" href="schedule.html">
+                    <div class="sidebar-brand-icon"><i class="far fa-calendar-alt" style="color: var(--bs-white);"></i></div>
+                    <div class="sidebar-brand-text mx-3"><span style="color: var(--bs-white);">SCHEDULE</span></div>
+                </a><a class="navbar-brand d-flex justify-content-center align-items-center sidebar-brand m-0" href="rooms.html">
+                    <div class="sidebar-brand-icon"><i class="fas fa-university" style="color: var(--bs-white);"></i></div>
+                    <div class="sidebar-brand-text mx-3"><span style="color: var(--bs-white);margin-right: 5px;margin-left: 5px;">ROOMS</span></div>
+                </a><a class="navbar-brand d-flex justify-content-center align-items-center sidebar-brand m-0" href="report.html" style="background: rgba(216,230,248,0);">
+                    <div class="sidebar-brand-icon"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 20 20" fill="none" style="color: var(--bs-white);font-size: 41px;">
+                            <path fill-rule="evenodd" clip-rule="evenodd" d="M6 2C4.89543 2 4 2.89543 4 4V16C4 17.1046 4.89543 18 6 18H14C15.1046 18 16 17.1046 16 16V7.41421C16 6.88378 15.7893 6.37507 15.4142 6L12 2.58579C11.6249 2.21071 11.1162 2 10.5858 2H6ZM8 12C8 11.4477 7.55228 11 7 11C6.44772 11 6 11.4477 6 12V15C6 15.5523 6.44772 16 7 16C7.55228 16 8 15.5523 8 15V12ZM10 9C10.5523 9 11 9.44772 11 10V15C11 15.5523 10.5523 16 10 16C9.44772 16 9 15.5523 9 15V10C9 9.44772 9.44772 9 10 9ZM14 8C14 7.44772 13.5523 7 13 7C12.4477 7 12 7.44772 12 8V15C12 15.5523 12.4477 16 13 16C13.5523 16 14 15.5523 14 15V8Z" fill="currentColor"></path>
+                        </svg></div>
+                    <div class="sidebar-brand-text mx-3"><span style="color: var(--bs-white);">&nbsp; Report</span></div>
+                </a>
+                <hr class="sidebar-divider my-0">
+                <ul class="navbar-nav text-light" id="accordionSidebar"></ul>
+                <div class="text-center d-none d-md-inline"><button class="btn rounded-circle border-0" id="sidebarToggle" type="button" style="color: var(--bs-white);background: rgba(255,255,255,0.3);margin-top: 20px;"></button></div>
+            </div>
+        </nav>
+        <div class="d-flex flex-column" id="content-wrapper" style="width: 100%;">
+            <div id="content" style="background: #ffffff;width: 100%;height: 400px;"><button class="btn btn-link d-md-none rounded-circle me-3" id="sidebarToggleTop" type="button"><i class="fas fa-bars"></i></button>
+                <div>
+                    <div class="row">
+                        <div class="col-auto text-center" style="padding: 50px;color: var(--bs-white);background: #d8e6f8;"><img class="rounded-circle" src="https://st3.depositphotos.com/6672868/13701/v/600/depositphotos_137014128-stock-illustration-user-profile-icon.jpg" width="150px" style="padding: 10px;">
+                            <p style="width:200px;font-size: 23px;font-weight: bold;color: #1e2833;" id="teacher_name">Teacher Name</p>
+                            <hr>
+                            <p style="color: #1e2833;" id="college">College</p>
+                            <p style="color: #1e2833;" id="department">Department</p>
+                            <p style="color: #1e2833;" id="rank">Rank</p>
+                            <p style="color: #1e2833;" id="preferredDays">Preferred Days</p>
+                        </div>
+                        <div class="col text-center" style="padding: 20px;">
+                            <h1 style="font-size: 39.9px;"><strong>Teachers</strong></h1>
+                            <div class="d-lg-flex justify-content-lg-center row">
+                                <div class="col-sm-7">
+                                    <div class="input-group" style="margin: 10px 0px;"><span class="input-group-text">Search</span><input class="form-control" id="searchBox" type="text"><button class="btn btn-primary" type="button" onclick="searchTeachers()">go</button></div>
+                                </div>
+                                <div class="col-auto" style="margin: 10px 0px;">
+                                    <div class="btn-group" role="group"><button class="btn btn-success" id="addTeacherButton" type="button">add&nbsp;</button><button class="btn btn-warning" id="editTeacherButton" type="button">edit</button><button class="btn btn-danger" id="archiveTeacherButton" type="button">archive</button></div>
+                                </div>
+                            </div>
+                            <hr>
+                            <div class="container-fluid overflow-auto table-responsive" style="height: 83vh;">
+                                <div class="table-responsive">
+                                    <table class="table" id="teachers_table">
+                                        <thead>
+                                            <tr>
+                                                <th scope='col' data-field='id'>Teacher ID</th>
+                                                <th scope='col' data-field='name'>Teacher Name</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody id="table_body"></tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div><a class="border rounded d-inline scroll-to-top" href="#page-top"><i class="fas fa-angle-up"></i></a>
+    </div>
+    <div class="modal fade" role="dialog" tabindex="-1" id="addTeacherModal">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">Add Teacher</h4><button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form name="addTeacherForm" id="addTeacherForm">
+                        <div class="row" style="margin: 10px 0px;">
+                            <div class="text-end col-sm-5"><label class="form-label">Teacher name:</label></div>
+                            <div class="col-sm-6"><input id="teacherName" name="teacherName" class="form-control" type="text"></div>
+                        </div>
+                        <div class="row" style="margin: 10px 0px;">
+                            <div class="text-end col-sm-5"><label class="form-label">College:</label></div>
+                            <div class="col-sm-6"><select name="college" class="form-select" id="TeacherCollege">
+                                    <optgroup label="Department List">
+                                        <option value="CBFS" selected="">CBFS</option>
+                                        <option value="CTHM">CTHM</option>
+                                        <option value="IGS">IGS/CGS/CCAPS</option>
+                                        <option value="COS">COS</option>
+                                        <option value="COE">COE</option>
+                                        <option value="CCSCE">CCSE</option>
+                                        <option value="IIT">IIT/COT/ITRED/CTM</option>
+                                        <option value="CCIS">CCIS</option>
+                                        <option value="CGPP">CGPP</option>
+                                        <option value="CAL">CAL</option>
+                                        <option value="COASH">COAHS</option>
+                                        <option value="CHK">CHK</option>
+                                        <option value="CMLI">CMLI</option>
+                                        <option value="CNST">CNST</option>
+                                    </optgroup>
+                                </select></div>
+                        </div>
+                        <div class="row" style="margin: 10px 0px;">
+                            <div class="text-end col-sm-5"><label class="form-label">Department:</label></div>
+                            <div class="col-sm-6"><select name="department" class="form-select" id="TeacherDept">
+                                    <optgroup label="Department List">
+                                        <option value="INS" selected="">Information and Network Security</option>
+                                        <option value="CDS">Computational and Data Sciences</option>
+                                        <option value="AppDev">Application Development</option>
+                                    </optgroup>
+                                </select></div>
+                        </div>
+                        <div class="row" style="margin: 10px 0px;">
+                            <div class="text-end col-sm-5"><label class="form-label">Teaching Rank:</label></div>
+                            <div class="col-sm-6"><select name="rank" class="form-select">
+                                <optgroup label="Teaching Rank">
+                                    <option value="Instructor I" selected="">Instructor I</option>
+                                    <option value="Instructor II">Instructor II</option>
+                                    <option value="Instructor III">Instructor III</option>
+                                    <option value="Assistant Professor I">Assistant Professor I</option>
+                                    <option value="Assistant Professor II">Assistant Professor II</option>
+                                    <option value="Assistant Professor III">Assistant Professor III</option>
+                                    <option value="Assistant Professor IV">Assistant Professor IV</option>
+                                    <option value="Associate Professor I">Associate Professor I</option>
+                                    <option value="Associate Professor II">Associate Professor II</option>
+                                    <option value="Associate Professor III">Associate Professor III</option>
+                                    <option value="Associate Professor IV">Associate Professor IV</option>
+                                    <option value="Associate Professor V">Associate Professor V</option>
+                                    <option value="Professor I">Professor I</option>
+                                    <option value="Professor II">Professor II</option>
+                                    <option value="Professor III">Professor III</option>
+                                    <option value="Professor IV">Professor IV</option>
+                                    <option value="Professor V">Professor V</option>
+                                    <option value="Professor VI">Professor VI</option>
+                                </optgroup>
+                                </select></div>
+                        </div>
+                        <div class="row" style="margin: 10px 0px;">
+                            <div class="text-end col-sm-5"><label class="form-label">Employment Type:</label></div>
+                            <div class="col-sm-6"><select name="employmentType" id="employmentType" class="form-select">
+                                    <optgroup label="Employment Type">
+                                        <option value="Monday" selected="">Regular</option>
+                                        <option value="Tuesday">Part-time</option>
+                                    </optgroup>
+                                </select></div>
+                        </div>
+                        <div class="row" style="margin: 10px 0px;">
+                            <div class="text-end col-sm-5"><label class="form-label">Preferred Days:</label></div>
+                            <div class="col-sm-6"><select name="days" class="form-select" id="AddpreferedDaysSelect">
+                                    <optgroup label="Days">
+                                        <option value="Monday" selected="">Monday</option>
+                                        <option value="Tuesday">Tuesday</option>
+                                        <option value="Wednesday">Wednesday</option>
+                                        <option value="Thursday">Thursday</option>
+                                        <option value="Friday">Friday</option>
+                                        <option value="Saturday">Saturday</option>
+                                        <option value="Sunday">Sunday</option>
+                                    </optgroup>
+                                </select></div>
+                        </div>
+                        <div class="row" style="margin: 10px 0px;" >
+                            <div class="text-end col-sm-5"><label class="form-label">Days list:</label></div>
+                            <div class="text-sm-start col-sm-6">
+                                <ul class="list" id="AddpreferedDays"></ul>
+                            </div>
+                            <span id="AddDayslistHidden" hidden></span>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer"><button class="btn btn-light" type="button" data-bs-dismiss="modal">Close</button><button class="btn btn-primary" id="submitNewTeacher" type="submit">Save</button></div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" role="dialog" tabindex="-1" id="editTeacherModal">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">Edit Teacher</h4><button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form name="editTeacherForm" id="editTeacherForm">
+                        <input type="number" name="id" id="id" style="display: none;">
+                        <div class="row" style="margin: 10px 0px;">
+                            <div class="text-end col-sm-5"><label class="form-label">Teacher name:</label></div>
+                            <div class="col-sm-6"><input id="editTeacherName" name="teacherName" class="form-control" type="text"></div>
+                        </div>
+                        <div class="row" style="margin: 10px 0px;">
+                            <div class="text-end col-sm-5"><label class="form-label">College:</label></div>
+                            <div class="col-sm-6"><select name="college" class="form-select" id="EditTeacherCollege">
+                                    <optgroup label="Department List">
+                                        <option value="CBFS" selected="">CBFS</option>
+                                        <option value="CTHM">CTHM</option>
+                                        <option value="IGS">IGS/CGS/CCAPS</option>
+                                        <option value="COS">COS</option>
+                                        <option value="COE">COE</option>
+                                        <option value="CCSCE">CCSE</option>
+                                        <option value="IIT">IIT/COT/ITRED/CTM</option>
+                                        <option value="CCIS">CCIS</option>
+                                        <option value="CGPP">CGPP</option>
+                                        <option value="CAL">CAL</option>
+                                        <option value="COASH">COAHS</option>
+                                        <option value="CHK">CHK</option>
+                                        <option value="CMLI">CMLI</option>
+                                        <option value="CNST">CNST</option>
+                                    </optgroup>
+                                </select></div>
+                        </div>
+                        <div class="row" style="margin: 10px 0px;">
+                            <div class="text-end col-sm-5"><label class="form-label">Department:</label></div>
+                            <div class="col-sm-6"><select name="department" class="form-select" id="EditTeacherDept">
+                                    <optgroup label="Department List">
+                                        <option value="INS" selected="">Information and Network Security</option>
+                                        <option value="CDS">Computational and Data Sciences</option>
+                                        <option value="AppDev">Application Development</option>
+                                    </optgroup>
+                                </select></div>
+                        </div>
+                        <div class="row" style="margin: 10px 0px;">
+                            <div class="text-end col-sm-5"><label class="form-label">Teaching Rank:</label></div>
+                            <div class="col-sm-6"><select name="rank" class="form-select">
+                                    <optgroup label="Teaching Rank">
+                                        <option value="Instructor I" selected="">Instructor I</option>
+                                        <option value="Instructor II">Instructor II</option>
+                                        <option value="Instructor III">Instructor III</option>
+                                        <option value="Assistant Professor I">Assistant Professor I</option>
+                                        <option value="Assistant Professor II">Assistant Professor II</option>
+                                        <option value="Assistant Professor III">Assistant Professor III</option>
+                                        <option value="Assistant Professor IV">Assistant Professor IV</option>
+                                        <option value="Associate Professor I">Associate Professor I</option>
+                                        <option value="Associate Professor II">Associate Professor II</option>
+                                        <option value="Associate Professor III">Associate Professor III</option>
+                                        <option value="Associate Professor IV">Associate Professor IV</option>
+                                        <option value="Associate Professor V">Associate Professor V</option>
+                                        <option value="Professor I">Professor I</option>
+                                        <option value="Professor II">Professor II</option>
+                                        <option value="Professor III">Professor III</option>
+                                        <option value="Professor IV">Professor IV</option>
+                                        <option value="Professor V">Professor V</option>
+                                        <option value="Professor VI">Professor VI</option>
+                                    </optgroup>
+                                </select></div>
+                        </div>
+                        <div class="row" style="margin: 10px 0px;">
+                            <div class="text-end col-sm-5"><label class="form-label">Employment Type:</label></div>
+                            <div class="col-sm-6"><select name="employmentType" id="employmentType" class="form-select">
+                                    <optgroup label="Employment Type">
+                                        <option value="Monday" selected="">Regular</option>
+                                        <option value="Tuesday">Part-time</option>
+                                    </optgroup>
+                                </select></div>
+                        </div>
+                        <div class="row" style="margin: 10px 0px;">
+                            <div class="text-end col-sm-5"><label class="form-label">Preferred Days:</label></div>
+                            <div class="col-sm-6"><select name="days" id="preferedDaysSelect" class="form-select">
+                                    <optgroup label="Days">
+                                        <option value="Monday" selected="">Monday</option>
+                                        <option value="Tuesday">Tuesday</option>
+                                        <option value="Wednesday">Wednesday</option>
+                                        <option value="Thursday">Thursday</option>
+                                        <option value="Friday">Friday</option>
+                                        <option value="Saturday">Saturday</option>
+                                        <option value="Sunday">Sunday</option>
+                                    </optgroup>
+                                </select></div>
+                        </div>
+                        <div class="row" style="margin: 10px 0px;" >
+                            <div class="text-end col-sm-5"><label class="form-label">Days list:</label></div>
+                            <div class="text-sm-start col-sm-6">
+                                <ul class="list" id="EditpreferedDays"></ul>
+                            </div>
+                            <span id="DayslistHidden" hidden></span>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer"><button class="btn btn-light" type="button" data-bs-dismiss="modal">Close</button><button class="btn btn-primary" id="EditTeacher" type="button">Save</button></div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" role="dialog" tabindex="-1" id="archiveTeacherModal">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">Archive Teacher</h4><button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <input type="number" name="idDelete" id="idDelete" style="display: none;">
+                    <p style="font-size: 29px;">Are you sure to archive <span id="teacherNameArchive"></span>?</p>
+                </div>
+                <div class="modal-footer"><button class="btn btn-secondary" type="button" data-bs-dismiss="modal">No</button><button class="btn btn-danger" id="archiveTeacher" type="button">Yes</button></div>
+            </div>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+    <script src="assets/js/modal.js"></script>
+    <script src="assets/js/theme.js"></script>
+    <script src="assets/js/ajax_scripts.js"></script>
+    <script src="assets/js/onclick.js"></script>
+    <script src="assets/js/events.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-table/1.10.0/bootstrap-table.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</body>
+
+</html>

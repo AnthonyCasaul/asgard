@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>Blank Page - Brand</title>
+    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.0/css/all.css">
+    <link rel="stylesheet" href="assets/css/Login-Form-Dark.css">
+    <link rel="stylesheet" href="assets/css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-table/1.10.0/bootstrap-table.min.css">
+</head>
+
+<body onload="getSections();FillSubjects()" id="page-top">
+    <div id="wrapper">
+        <nav class="navbar navbar-dark d-lg-flex align-items-start align-items-lg-start sidebar sidebar-dark accordion bg-gradient-primary p-0" style="background: #002649;">
+            <div class="container-fluid d-flex flex-column p-0"><a class="navbar-brand d-flex justify-content-center align-items-center sidebar-brand m-0" href="#">
+                    <div class="sidebar-brand-icon"></div>
+                    <div class="sidebar-brand-text mx-3"><span style="color: var(--bs-white);">MENU</span></div>
+                </a><a class="navbar-brand d-flex justify-content-center align-items-center sidebar-brand m-0" href="home.html">
+                    <div class="sidebar-brand-icon"><i class="fas fa-home" style="color: var(--bs-white);"></i></div>
+                    <div class="sidebar-brand-text mx-3"><span style="color: var(--bs-white);">A.S.G.A.R.D</span></div>
+                </a><a class="navbar-brand d-flex justify-content-center align-items-center sidebar-brand m-0" href="subjects.html">
+                    <div class="sidebar-brand-icon"><i class="fas fa-book" style="color: var(--bs-white);"></i></div>
+                    <div class="sidebar-brand-text mx-3"><span style="color: var(--bs-white);">subjects</span></div>
+                </a><a class="active navbar-brand d-flex justify-content-center align-items-center sidebar-brand m-0" href="sections.html" style="width: 100%;background: #d8e6f8;">
+                    <div class="sidebar-brand-icon"><i class="fas fa-users" style="color: #1e2833;"></i></div>
+                    <div class="sidebar-brand-text mx-3"><span style="color: #1e2833;">sections</span></div>
+                </a><a class="navbar-brand d-flex justify-content-center align-items-center sidebar-brand m-0" href="schedule.html">
+                    <div class="sidebar-brand-icon"><i class="far fa-calendar-alt" style="color: var(--bs-white);"></i></div>
+                    <div class="sidebar-brand-text mx-3"><span style="color: var(--bs-white);">SCHEDULE</span></div>
+                </a><a class="navbar-brand d-flex justify-content-center align-items-center sidebar-brand m-0" href="rooms.html">
+                    <div class="sidebar-brand-icon"><i class="fas fa-university" style="color: var(--bs-white);"></i></div>
+                    <div class="sidebar-brand-text mx-3"><span style="color: var(--bs-white);margin-right: 5px;margin-left: 5px;">ROOMS</span></div>
+                </a><a class="navbar-brand d-flex justify-content-center align-items-center sidebar-brand m-0" href="report.html" style="background: rgba(216,230,248,0);">
+                    <div class="sidebar-brand-icon"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 20 20" fill="none" style="color: var(--bs-white);font-size: 41px;">
+                            <path fill-rule="evenodd" clip-rule="evenodd" d="M6 2C4.89543 2 4 2.89543 4 4V16C4 17.1046 4.89543 18 6 18H14C15.1046 18 16 17.1046 16 16V7.41421C16 6.88378 15.7893 6.37507 15.4142 6L12 2.58579C11.6249 2.21071 11.1162 2 10.5858 2H6ZM8 12C8 11.4477 7.55228 11 7 11C6.44772 11 6 11.4477 6 12V15C6 15.5523 6.44772 16 7 16C7.55228 16 8 15.5523 8 15V12ZM10 9C10.5523 9 11 9.44772 11 10V15C11 15.5523 10.5523 16 10 16C9.44772 16 9 15.5523 9 15V10C9 9.44772 9.44772 9 10 9ZM14 8C14 7.44772 13.5523 7 13 7C12.4477 7 12 7.44772 12 8V15C12 15.5523 12.4477 16 13 16C13.5523 16 14 15.5523 14 15V8Z" fill="currentColor"></path>
+                        </svg></div>
+                    <div class="sidebar-brand-text mx-3"><span style="color: var(--bs-white);">&nbsp; Report</span></div>
+                </a>
+                <hr class="sidebar-divider my-0">
+                <ul class="navbar-nav text-light" id="accordionSidebar"></ul>
+                <div class="text-center d-none d-md-inline"><button class="btn rounded-circle border-0" id="sidebarToggle" type="button" style="color: var(--bs-white);background: rgba(255,255,255,0.3);margin-top: 20px;"></button></div>
+            </div>
+        </nav>
+        <div class="d-flex flex-column" id="content-wrapper" style="width: 100%;">
+            <div id="content" style="background: #ffffff;width: 100%;height: 400px;"><button class="btn btn-link d-md-none rounded-circle me-3" id="sidebarToggleTop" type="button"><i class="fas fa-bars"></i></button>
+                <div>
+                    <div class="row">
+                        <div class="col-auto text-center" style="padding: 50px;color: var(--bs-white);background: #d8e6f8;"><img class="rounded-circle" src="https://png.pngtree.com/png-vector/20191009/ourmid/pngtree-group-icon-png-image_1796653.jpg" width="150px" style="padding: 10px;">
+                            <p style="font-size: 23px;font-weight: bold;color: #1e2833;" id="section_name">Section</p>
+                            <hr>
+                            <p style="color: #1e2833;" id="year">Year</p>
+                            <p style="color: #1e2833;" id="department">Department</p>
+                            <p style="color: #1e2833;" id="shift">Shift</p>
+                            <p style="color: #1e2833;width:250px;padding-right: 10px" id="req_subs">Required Subjects</p>
+                        </div>
+                        <div class="col text-center" style="padding: 20px;">
+                            <h1 style="font-size: 39.9px;"><strong>Sections</strong></h1>
+                            <div class="d-lg-flex justify-content-lg-center row">
+                                <div class="col-sm-7">
+                                    <div class="input-group" style="margin: 10px 0px;"><span class="input-group-text">Search</span><input class="form-control" type="text" id="searchBox"><button class="btn btn-primary" onclick="searchSections()" type="button">go</button></div>
+                                </div>
+                                <div class="col-auto" style="margin: 10px 0px;">
+                                    <div class="btn-group" role="group"><button class="btn btn-success" id="addSectionButton" type="button">add&nbsp;</button><button class="btn btn-warning" id="editSectionButton" type="button">edit</button><button class="btn btn-danger" id="archiveSectionButton" type="button">archive</button></div>
+                                </div>
+                            </div>
+                            <hr>
+                            <div class="container-fluid overflow-auto table-responsive" style="height: 83vh;">
+                                <div class="table-responsive">
+                                    <table id="sections_table" class="table">
+                                        <thead>
+                                            <tr>
+                                                <th scope='col' data-field='id'>Section ID</th>
+                                                <th scope='col' data-field='name'>Section Name</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody id="table_body"></tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div><a class="border rounded d-inline scroll-to-top" href="#page-top"><i class="fas fa-angle-up"></i></a>
+    </div>
+    <div class="modal fade" role="dialog" tabindex="-1" id="addSectionModal">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">Add Section</h4><button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="addSectionForm">
+                        <div class="row" style="margin: 10px 0px;">
+                            <div class="text-end col-sm-5"><label class="form-label">Section Name:</label></div>
+                            <div class="col-sm-6"><input name="section_name" class="form-control" type="text"></div>
+                        </div>
+                        <div class="row" style="margin: 10px 0px;">
+                            <div class="text-end col-sm-5"><label class="form-label">Department:</label></div>
+                            <div class="col-sm-6"><select name="department" class="form-select">
+                                    <optgroup label="Department List">
+                                        <option value="INS" selected="">Information and Network Security</option>
+                                        <option value="CDS">Computational and Data Sciences</option>
+                                        <option value="AppDev">Application Development</option>
+                                    </optgroup>
+                                </select></div>
+                        </div>
+                        <div class="row" style="margin: 10px 0px;">
+                            <div class="text-end col-sm-5"><label class="form-label">Year:</label></div>
+                            <div class="col-sm-6"><select name="year" class="form-select">
+                                    <optgroup label="Year Level">
+                                        <option value="1" selected="">1st year</option>
+                                        <option value="2">2nd year</option>
+                                        <option value="3">3rd year</option>
+                                        <option value="4">4th year</option>
+                                    </optgroup>
+                                </select></div>
+                        </div>
+                        <div class="row" style="margin: 10px 0px;">
+                            <div class="text-end col-sm-5"><label class="form-label">Shift:</label></div>
+                            <div class="col-sm-6"><select name="shift" class="form-select">
+                                    <optgroup label="Shift">
+                                        <option value="Morning" selected="">Morning</option>
+                                        <option value="Afternoon">Afternoon</option>
+                                    </optgroup>
+                                </select></div>
+                        </div>
+                        <div class="row" style="margin: 10px 0px;">
+                            <div class="text-end col-sm-5"><label class="form-label">Required Subjects:</label></div>
+                            <div class="col-sm-6"><select name="subjects" class="form-select" id="subjectsAddSelect">
+                                    <optgroup label="Required Subjects" id="subjectsDropDownAdd">
+                                    </optgroup>
+                                </select></div>
+                        </div>
+                        <div class="row" style="margin: 10px 0px;" >
+                            <div class="text-end col-sm-5"><label class="form-label">Subject list:</label></div>
+                            <div class="text-sm-start col-sm-6">
+                                <ul class="list" id="sublist"></ul>
+                            </div>
+                            <span id="listHidden" hidden></span>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer"><button class="btn btn-light" type="button" data-bs-dismiss="modal">Close</button><button class="btn btn-primary" type="button" id="submitNewSection">Save</button></div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" role="dialog" tabindex="-1" id="editSectionModal">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">Edit Section</h4><button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="editSectionForm">
+                        <input name="id" id="editSectionID" hidden="">
+                        <div class="row" style="margin: 10px 0px;">
+                            <div class="text-end col-sm-5"><label class="form-label">Section Name:</label></div>
+                            <div class="col-sm-6"><input id="editSectionName" name="section_name" class="form-control" type="text"></div>
+                        </div>
+                        <div class="row" style="margin: 10px 0px;">
+                            <div class="text-end col-sm-5"><label class="form-label">Department:</label></div>
+                            <div class="col-sm-6"><select name="department" class="form-select">
+                                    <optgroup label="Department List">
+                                        <option value="INS" selected="">Information and Network Security</option>
+                                        <option value="CDS">Computational and Data Sciences</option>
+                                        <option value="AppDev">Application Development</option>
+                                    </optgroup>
+                                </select></div>
+                        </div>
+                        <div class="row" style="margin: 10px 0px;">
+                            <div class="text-end col-sm-5"><label class="form-label">Year:</label></div>
+                            <div class="col-sm-6"><select name="year" class="form-select">
+                                    <optgroup label="Year Level">
+                                        <option value="1" selected="">1st year</option>
+                                        <option value="2">2nd year</option>
+                                        <option value="3">3rd year</option>
+                                        <option value="4">4th year</option>
+                                    </optgroup>
+                                </select></div>
+                        </div>
+                        <div class="row" style="margin: 10px 0px;">
+                            <div class="text-end col-sm-5"><label class="form-label">Shift:</label></div>
+                            <div class="col-sm-6"><select name="shift" class="form-select">
+                                    <optgroup label="Shift">
+                                        <option value="Morning" selected="">Morning</option>
+                                        <option value="Afternoon">Afternoon</option>
+                                    </optgroup>
+                                </select></div>
+                        </div>
+                        <div class="row" style="margin: 10px 0px;">
+                            <div class="text-end col-sm-5"><label class="form-label">Required Subjects:</label></div>
+                            <div class="col-sm-6"><select name="subjects" class="form-select" id="subjectsEditSelect">
+                                    <optgroup label="Required Subjects" id="subjectsDropDownEdit">
+                                    </optgroup>
+                                </select></div>
+                        </div>
+                        <div class="row" style="margin: 10px 0px;" >
+                            <div class="text-end col-sm-5"><label class="form-label">Subject list:</label></div>
+                            <div class="text-sm-start col-sm-6">
+                                <ul class="list" id="Editsublist"></ul>
+                            </div>
+                            <span id="EditlistHidden" hidden></span>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer"><button class="btn btn-light" type="button" data-bs-dismiss="modal">Close</button><button class="btn btn-primary" id="editSection" type="button">Save</button></div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" role="dialog" tabindex="-1" id="archiveSectionModal">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">Archive Section</h4><button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <input type="number" name="id" id="deleteSectionID" hidden>
+                    <p class="text-center" style="font-size: 20px;">Are you sure to archive <span id="sectionName"></span>?</p>
+                </div>
+                <div class="modal-footer"><button class="btn btn-secondary" type="button" data-bs-dismiss="modal">No</button><button class="btn btn-danger" type="button" id="archiveSection">Yes</button></div>
+            </div>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+    <script src="assets/js/modal.js"></script>
+    <script src="assets/js/theme.js"></script>
+    <script src="assets/js/ajax_scripts.js"></script>
+    <script src="assets/js/events.js"></script>
+    <script src="assets/js/onclick.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-table/1.10.0/bootstrap-table.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</body>
+
+</html>
